@@ -42,7 +42,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.hidesBackButton = YES;
@@ -73,23 +73,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
+
+    static NSString *CellIdentifier = @"ARSwipeToSelectPickerControllerCell";
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+
     //    NSLog (@"returning cell %@ at %@", cell, indexPath);
-    
+
     ALAssetsGroup *groupForCell = [self.groups objectAtIndex:indexPath.row];
     CGImageRef posterImageRef = [groupForCell posterImage];
     UIImage *posterImage = [UIImage imageWithCGImage:posterImageRef];
     cell.imageView.image = posterImage;
     cell.textLabel.text = [groupForCell valueForProperty:ALAssetsGroupPropertyName];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+
     return cell;
 }
 
@@ -97,7 +97,7 @@
 - (void)loadPhotoAlbums
 {
     NSUInteger groupTypes = ALAssetsGroupAll;//ALAssetsGroupAlbum| ALAssetsGroupEvent;// | ALAssetsGroupFaces;
-    
+
     [self.assetLibrary enumerateGroupsWithTypes:groupTypes usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         if (group) {
             [self.groups addObject:group];
@@ -127,7 +127,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (self.groups.count > indexPath.row) {
         // [self performSegueWithIdentifier:@"showSwipePhotoPicker" sender:indexPath];
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];

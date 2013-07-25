@@ -33,18 +33,17 @@
     self.collectionView.allowsSelection = self.collectionView.allowsMultipleSelection = YES;
     self.assets = [[NSMutableArray alloc] initWithCapacity:[self.group numberOfAssets]];
     self.selectedAssets = [[NSMutableArray alloc] initWithCapacity:[self.group numberOfAssets]];
-    for (int i = 0; i < [self.group numberOfAssets]; i++) {
+    for (int i=0; i<[self.group numberOfAssets]; ++i) {
         self.selectedAssets[i] = [NSNumber numberWithBool:NO];
     }
-    
+
     [self loadAssets];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonSystemItemDone target:self action:@selector(done:)];
 	// Do any additional setup after loading the view.
     ARSwipeToSelectGestureRecognizer *gestureRecognizer = [[ARSwipeToSelectGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:) toggleSelectedHandler:^(NSIndexPath *indexPath) {
         ARPhotoCell *photoCell = (ARPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
         [photoCell toggleSelected];
-
-        self.selectedAssets[indexPath.row] = ([self.selectedAssets[indexPath.row] boolValue] == YES ? [NSNumber numberWithBool:NO]: [NSNumber numberWithBool:YES]);
+        self.selectedAssets[indexPath.row] = [NSNumber numberWithBool:(![self.selectedAssets[indexPath.row] boolValue])];
     }];
     [self.collectionView addGestureRecognizer:gestureRecognizer];
 }
@@ -70,6 +69,7 @@
     return cell;}
 
 #pragma mark - UICollectionViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 }
@@ -79,6 +79,7 @@
 }
 
 #pragma mark - Private methods
+
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
 }

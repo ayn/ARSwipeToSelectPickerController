@@ -8,9 +8,6 @@
 
 #import "ARPhotoCell.h"
 
-@interface ARPhotoCell ()
-@end
-
 @implementation ARPhotoCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,7 +30,6 @@
     NSIndexPath *indexPath = [((UICollectionView *)[self superview]) indexPathForCell:self];
     self.selected = !self.selected;
     self.alpha = self.selected ? 0.5 : 1.0;
-    NSLog(@"IndexPath %@",indexPath);
 }
 
 - (void)prepareForReuse
