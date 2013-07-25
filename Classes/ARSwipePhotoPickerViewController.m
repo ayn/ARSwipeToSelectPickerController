@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Andrew Ng. All rights reserved.
 //
 
-//@import AssetsLibrary;
-#import <AssetsLibrary/AssetsLibrary.h>
 #import "ARSwipePhotoPickerViewController.h"
-#import "ARPhotoCell.h"
 #import "ARSwipeToSelectGestureRecognizer.h"
+#import "ARPhotoCell.h"
 
 @interface ARSwipePhotoPickerViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UICollectionViewDelegate>
 @property (nonatomic, strong) NSMutableArray *assets;

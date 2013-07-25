@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+//@import AssetsLibrary;
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "ARSwipeToSelectPickerController.h"
 
 @interface ARSwipePhotoPickerViewController : UICollectionViewController
