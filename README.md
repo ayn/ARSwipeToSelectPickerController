@@ -70,3 +70,8 @@ Or if you are inside a `UINavigationController` stack, do something like the fol
 ```` objective-c
 [self.navigationController popToViewController:self animated:YES];
 ````
+
+## Co-Authors
+
+- [Andrew Ng](http://github.com/ayn)
+- [Ray Tsaihong](http://github.com/rmundo)
