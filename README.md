@@ -25,7 +25,6 @@ Alternatively you could copy all the files in the `Classes/` directory into your
 ```` objective-c
 ARSwipeToSelectPickerController *picker = [[ARSwipeToSelectPickerController alloc] initWithDelegate:self];
 [self.navigationController pushViewController:picker animated:YES];
-
 ````
 
 You can also show the picker modally by embedding it inside a `UINavigationController` first:
