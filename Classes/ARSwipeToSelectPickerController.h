@@ -15,8 +15,6 @@
 @end
 
 @protocol ARSwipeToSelectPickerControllerDelegate <UINavigationControllerDelegate>
-
 - (void)swipeToSelectPickerControllerDidCancel:(ARSwipeToSelectPickerController *)sender;
 - (void)swipeToSelectPickerController:(ARSwipeToSelectPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets;
-
 @end

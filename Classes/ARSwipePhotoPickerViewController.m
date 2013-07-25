@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Andrew Ng. All rights reserved.
 //
 
-@import AssetsLibrary;
+//@import AssetsLibrary;
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "ARSwipePhotoPickerViewController.h"
 #import "ARPhotoCell.h"
 #import "ARSwipeToSelectGestureRecognizer.h"
@@ -46,8 +47,6 @@
         [photoCell toggleSelected];
 
         self.selectedAssets[indexPath.row] = ([self.selectedAssets[indexPath.row] boolValue] == YES ? [NSNumber numberWithBool:NO]: [NSNumber numberWithBool:YES]);
-        
-        DLog(@"after toggle, selected = %d", photoCell.selected);
     }];
     [self.collectionView addGestureRecognizer:gestureRecognizer];
 }
