@@ -19,7 +19,7 @@ Alternatively you could copy all the files in the `Classes/` directory into your
 
 1. Import the header: `#import "ARSwipeToSelectPickerController.h"`
 2. Conform to the `ARSwipeToSelectPickerControllerDelegate` protocol,
-   implement its delegate methods
+   implement its [delegate methods](#delegate-methods)
 3. Instantiate the controller:
 
 ```` objective-c
