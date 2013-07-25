@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   s.requires_arc = true
+  s.framework    = "AssetsLibrary", "UIKit", "CoreGraphics"
   s.dependency 'ARSwipeToSelectGestureRecognizer', '~> 0.2'
 end
