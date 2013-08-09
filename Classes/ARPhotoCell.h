@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ARPhotoCell : UICollectionViewCell
-- (void)toggleSelected;
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
 @end

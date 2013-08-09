@@ -12,7 +12,6 @@
 
 @interface ARSwipePhotoPickerViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UICollectionViewDelegate>
 @property (nonatomic, strong) NSMutableArray *assets;
-@property (nonatomic, strong) NSMutableArray *selectedAssets;
 @end
 
 @implementation ARSwipePhotoPickerViewController
@@ -32,18 +31,18 @@
     [self.collectionView registerClass:[ARPhotoCell class] forCellWithReuseIdentifier:@"ARPhotoCell"];
     self.collectionView.allowsSelection = self.collectionView.allowsMultipleSelection = YES;
     self.assets = [[NSMutableArray alloc] initWithCapacity:[self.group numberOfAssets]];
-    self.selectedAssets = [[NSMutableArray alloc] initWithCapacity:[self.group numberOfAssets]];
-    for (int i=0; i<[self.group numberOfAssets]; ++i) {
-        self.selectedAssets[i] = [NSNumber numberWithBool:NO];
-    }
 
     [self loadAssets];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonSystemItemDone target:self action:@selector(done:)];
 	// Do any additional setup after loading the view.
     ARSwipeToSelectGestureRecognizer *gestureRecognizer = [[ARSwipeToSelectGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:) toggleSelectedHandler:^(NSIndexPath *indexPath) {
-        ARPhotoCell *photoCell = (ARPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        [photoCell toggleSelected];
-        self.selectedAssets[indexPath.row] = [NSNumber numberWithBool:(![self.selectedAssets[indexPath.row] boolValue])];
+        if ([[self.collectionView indexPathsForSelectedItems] containsObject:indexPath]) {
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+            [self.collectionView cellForItemAtIndexPath:indexPath].alpha = 1.0;
+        } else {
+            [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [self.collectionView cellForItemAtIndexPath:indexPath].alpha = 0.5;
+        }
     }];
     [self.collectionView addGestureRecognizer:gestureRecognizer];
 }
@@ -66,7 +65,11 @@
     ARPhotoCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"ARPhotoCell" forIndexPath:indexPath];
     ALAsset * asset = (ALAsset *)self.assets[indexPath.row];
     cell.imageView.image = [UIImage imageWithCGImage:asset.thumbnail];
-    return cell;}
+    if ([[self.collectionView indexPathsForSelectedItems] containsObject:indexPath]) {
+        cell.alpha = 0.5;
+    }
+    return cell;
+}
 
 #pragma mark - UICollectionViewDelegate
 
@@ -96,11 +99,10 @@
 - (void)done:(id)sender
 {
     NSMutableArray *returnAssets = [[NSMutableArray alloc] initWithCapacity:[self.group numberOfAssets]];
-    for (int i=0; i<[self.group numberOfAssets]; ++i) {
-        if ([self.selectedAssets[i] boolValue]) {
-            [returnAssets addObject:self.assets[i]];
-        }
-    }
+    [[self.collectionView indexPathsForSelectedItems] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSIndexPath *indexPath = (NSIndexPath *)obj;
+        [returnAssets addObject:self.assets[indexPath.row]];
+    }];
     [self.delegate swipeToSelectPickerController:nil didFinishPickingMediaWithAssets:returnAssets];
 }
 

@@ -25,16 +25,9 @@
     return self;
 }
 
-- (void)toggleSelected
-{
-    NSIndexPath *indexPath = [((UICollectionView *)[self superview]) indexPathForCell:self];
-    self.selected = !self.selected;
-    self.alpha = self.selected ? 0.5 : 1.0;
-}
-
 - (void)prepareForReuse
 {
-    [super prepareForReuse];    
+    [super prepareForReuse];
     self.imageView.image = nil;
 }
 
