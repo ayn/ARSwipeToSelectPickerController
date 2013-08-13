@@ -10,11 +10,6 @@ The easiest way to add `ARSwipeToSelectPickerController` to your project is via 
 
 Alternatively you could copy all the files in the `Classes/` directory into your project. Be sure 'Copy items to destination group's folder' is checked.
 
-#### _We haven't submitted the pull request to CocoaPod Specs yet, in the meantime you can add it manually with its dependency:_
-
-    pod 'ARSwipeToSelectGestureRecognizer', :git => 'https://github.com/ayn/ARSwipeToSelectGestureRecognizer.git'
-    pod 'ARSwipeToSelectPickerController', :git => 'https://github.com/ayn/ARSwipeToSelectPickerController.git'
-
 ## Use
 
 1. Import the header: `#import "ARSwipeToSelectPickerController.h"`
