@@ -70,3 +70,7 @@ Or if you are inside a `UINavigationController` stack, do something like the fol
 
 - [Andrew Ng](http://github.com/ayn)
 - [Ray Tsaihong](http://github.com/rmundo)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ayn/ARSwipeToSelectPickerController/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
