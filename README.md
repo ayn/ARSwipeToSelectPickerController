@@ -1,5 +1,7 @@
 # ARSwipeToSelectPickerController
 
+![animatedgif](https://files.app.net/hjq6h7HO.gif)
+
 A UIImagePickerController-like assets picker that utilizes [`ARMultiSelectGestureRecognizer`](http://github.com/ayn/ARSwipeToSelectGestureRecognizer) for swipe-to-select
 
 ## Adding to your project
