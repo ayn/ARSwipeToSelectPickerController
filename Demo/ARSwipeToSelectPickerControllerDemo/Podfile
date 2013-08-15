@@ -1,0 +1,2 @@
+platform :ios, '7.0'
+pod 'ARSwipeToSelectPickerController', :git => 'https://github.com/ayn/ARSwipeToSelectPickerController.git'
