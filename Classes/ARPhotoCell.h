@@ -10,4 +10,6 @@
 
 @interface ARPhotoCell : UICollectionViewCell
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
+@property (nonatomic, strong, readwrite) UIImageView *checkView;
+@property (nonatomic, strong, readwrite) UIView *fogView;
 @end

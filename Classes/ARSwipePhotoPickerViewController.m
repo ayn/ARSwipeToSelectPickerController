@@ -38,10 +38,14 @@
     ARSwipeToSelectGestureRecognizer *gestureRecognizer = [[ARSwipeToSelectGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:) toggleSelectedHandler:^(NSIndexPath *indexPath) {
         if ([[self.collectionView indexPathsForSelectedItems] containsObject:indexPath]) {
             [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
-            [self.collectionView cellForItemAtIndexPath:indexPath].alpha = 1.0;
+            ARPhotoCell *photoCell = (ARPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+            photoCell.checkView.hidden = YES;
+            photoCell.fogView.hidden = YES;
         } else {
             [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-            [self.collectionView cellForItemAtIndexPath:indexPath].alpha = 0.5;
+            ARPhotoCell *photoCell = (ARPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+            photoCell.checkView.hidden = NO;
+            photoCell.fogView.hidden = NO;
         }
     }];
     [self.collectionView addGestureRecognizer:gestureRecognizer];
@@ -66,7 +70,8 @@
     ALAsset * asset = (ALAsset *)self.assets[indexPath.row];
     cell.imageView.image = [UIImage imageWithCGImage:asset.thumbnail];
     if ([[self.collectionView indexPathsForSelectedItems] containsObject:indexPath]) {
-        cell.alpha = 0.5;
+        cell.checkView.hidden = NO;
+        cell.fogView.hidden = NO;
     }
     return cell;
 }

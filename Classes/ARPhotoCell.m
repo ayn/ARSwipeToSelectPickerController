@@ -20,7 +20,20 @@
         self.imageView.contentMode = UIViewContentModeScaleToFill;
         self.imageView.clipsToBounds = YES;
         self.imageView.userInteractionEnabled = NO;
+        self.fogView = [[UIView alloc] initWithFrame:self.bounds];
+        self.fogView.clipsToBounds = YES;
+        self.fogView.userInteractionEnabled = NO;
+        self.fogView.hidden = YES;
+        self.fogView.backgroundColor = [UIColor whiteColor];
+        self.fogView.alpha = 0.5;
+        self.checkView = [[UIImageView alloc] initWithFrame:CGRectMake(50.0, 50.0, 27.0, 27.0)];
+        self.checkView.image = [UIImage imageNamed:@"checkmark"];
+        self.checkView.clipsToBounds = YES;
+        self.checkView.userInteractionEnabled = NO;
+        self.checkView.hidden = YES;
         [self.contentView addSubview:self.imageView];
+        [self.contentView addSubview:self.fogView];
+        [self.contentView addSubview:self.checkView];
     }
     return self;
 }
