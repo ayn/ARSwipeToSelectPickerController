@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ARSwipeToSelectPickerController"
-  s.version      = "0.2"
+  s.version      = "0.3"
   s.summary      = "A UIImagePickerController-like assets picker that utilizes ARMultiSelectGestureRecognizer for swipe-to-select"
   s.homepage     = "https://github.com/ayn/ARSwipeToSelectPickerController"
   s.screenshots  = "https://files.app.net/hjq6h7HO.gif"
@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.resources    = 'Resources/**/*'
   s.requires_arc = true
   s.framework    = "AssetsLibrary", "UIKit", "CoreGraphics"
-  s.dependency 'ARSwipeToSelectGestureRecognizer', '~> 0.2'
+  s.dependency 'ARSwipeToSelectGestureRecognizer', '~> 0.3'
 end
