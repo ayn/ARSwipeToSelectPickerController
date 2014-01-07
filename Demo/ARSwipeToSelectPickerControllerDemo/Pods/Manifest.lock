@@ -1,17 +1,13 @@
 PODS:
-  - ARSwipeToSelectGestureRecognizer (0.2)
-  - ARSwipeToSelectPickerController (0.2):
-    - ARSwipeToSelectGestureRecognizer (~> 0.2)
+  - ARSwipeToSelectGestureRecognizer (0.3)
+  - ARSwipeToSelectPickerController (0.3):
+    - ARSwipeToSelectGestureRecognizer (~> 0.3)
 
 DEPENDENCIES:
-  - ARSwipeToSelectPickerController (from `https://github.com/ayn/ARSwipeToSelectPickerController.git`)
-
-EXTERNAL SOURCES:
-  ARSwipeToSelectPickerController:
-    :git: https://github.com/ayn/ARSwipeToSelectPickerController.git
+  - ARSwipeToSelectPickerController
 
 SPEC CHECKSUMS:
-  ARSwipeToSelectGestureRecognizer: ed95569efda73e0ed55644307271c50dc6f79980
-  ARSwipeToSelectPickerController: 075563ced509a8209cfffe4d4012c8fec1198e9f
+  ARSwipeToSelectGestureRecognizer: fe4da47d42db763cf1b822eefa5a9be34b40eb1f
+  ARSwipeToSelectPickerController: 92f40a8b347977251fedc71c19026c32b52a2ce9
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.29.0

@@ -1,5 +1,7 @@
 # ARSwipeToSelectPickerController
 
+![animatedgif](https://files.app.net/hjq6h7HO.gif)
+
 A UIImagePickerController-like assets picker that utilizes [`ARMultiSelectGestureRecognizer`](http://github.com/ayn/ARSwipeToSelectGestureRecognizer) for swipe-to-select
 
 ## Adding to your project
@@ -37,7 +39,11 @@ UINavigationController *nav = [[UINavigationController alloc] initWithRootViewCo
 
 - (void) swipeToSelectPickerControllerDidCancel:(ARSwipeToSelectPickerController *)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    // use popViewControllerAnimated if using navigation controller for viewcontroller stack
+    //[self.navigationController popViewControllerAnimated:YES];
+
+    // use dismissViewControllerAnimated if not using a navigation controller
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) swipeToSelectPickerController:(ARSwipeToSelectPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
@@ -65,6 +71,9 @@ Or if you are inside a `UINavigationController` stack, do something like the fol
 ```` objective-c
 [self.navigationController popToViewController:self animated:YES];
 ````
+
+## Demo
+A cool demo can be found in the [demo folder](Demo/)!
 
 ## Co-Authors
 
